@@ -536,45 +536,54 @@
 // console.log(animal)
 
 function repeat(n, action) {
-  for (let i = 0; i < n; i++) {
-    action(i);
-  }
+    for (let i = 0; i < n; i++) {
+        action(i);
+    }
 }
 
 let labels = [];
 repeat(5, i => {
-  labels.push(`Unit ${i + 1}`);
+    labels.push(`Unit ${i + 1}`);
 });
 console.log(labels);
 // → ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5"]
 
 const companies = [
-    {name: "Company One", category: "Finance", start: 1981, end:2003},
-    {name: "Company Two", category: "Finance", start: 1992, end:2150},
-    {name: "Company Three", category: "Finance", start: 1979, end:2054},
-    {name: "Company Four", category: "Finance", start: 1981, end:1981},
-    {name: "Company Five", category: "Finance", start: 1945, end:1947},
-    {name: "Company Six", category: "Finance", start: 1981, end:2142},
-    {name: "Company Seven", category: "Finance", start: 1944, end:1982},
-    {name: "Company Eight", category: "Finance", start: 1972, end:1980},
-    {name: "Company Nine", category: "Finance", start: 1981, end:1982}
+    { name: "Company One", category: "Finance", start: 1981, end: 2003 },
+    { name: "Company Two", category: "Retail", start: 1992, end: 2150 },
+    { name: "Company Three", category: "Auto", start: 1979, end: 2054 },
+    { name: "Company Four", category: "Finance", start: 1981, end: 1981 },
+    { name: "Company Five", category: "Retail", start: 1945, end: 1947 },
+    { name: "Company Six", category: "Auto", start: 1981, end: 2142 },
+    { name: "Company Seven", category: "Technology", start: 1944, end: 1982 },
+    { name: "Company Eight", category: "Technology", start: 1972, end: 1980 },
+    { name: "Company Nine", category: "Retail", start: 1981, end: 1982 }
 ]
 
 const ages = [33, 12, 20, 5, 6, 12, 26]
 
-for(let i=0; i < companies.length; i++){
+for (let i = 0; i < companies.length; i++) {
     console.log(companies[i])
 }
 // forEach 
-companies.forEach(company => 
+companies.forEach(company =>
     console.log(company)
 )
 // filter
 let canBuyAlcohol = []
-for(let i = 0; i < ages.length; i++){
-    if (ages[i] >= 21){
+for (let i = 0; i < ages.length; i++) {
+    if (ages[i] >= 21) {
         canBuyAlcohol.push(ages[i])
-    } 
+    }
 }
 let canDrink = ages.filter(age => age >= 21)
+
+// const retailStores = companies.filter(function (isCompanyARetailStore) {
+//     if (isCompanyARetailStore.category === "Retail") {
+//         return true
+//     }
+// }
+// )
+const retailStores = companies.filter(company => company.category === 'Retail')
+console.log(retailStores)
 // 
