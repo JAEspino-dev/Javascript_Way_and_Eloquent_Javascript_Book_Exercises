@@ -535,6 +535,35 @@
 // animal[0] = "r";
 // console.log(animal)
 
+class ShoppingCart{
+    constructor(user){
+        this.user = user
+        this.items = []
+    }
+    addItems(name, price){
+        this.items.push({ // [].push({'name', price})
+            name: name,
+            price: price
+        })
+        return `${name} got added to the cart`
+    }
+    removeItem(name){
+        this.items = this.items.filter(item => item.name !== name)
+    }
+    getTotal(){
+        return this.items.reduce((accumulator, item) => accumulator + item.price, 0)
+    }
+}
+const JorgeCart = new ShoppingCart('Jorge')
+console.log(JorgeCart)
+JorgeCart.addItems('Noodles', 5)
+JorgeCart.addItems('Chicken', 7)
+JorgeCart.addItems('Tri-Tip', 34)
+console.log(JorgeCart)
+JorgeCart.removeItem('Chicken')
+console.log(JorgeCart)
+console.log(JorgeCart.getTotal())
+
 function repeat(n, action) {
     for (let i = 0; i < n; i++) {
         action(i);
