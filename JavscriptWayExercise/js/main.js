@@ -586,4 +586,12 @@ let canDrink = ages.filter(age => age >= 21)
 // )
 const retailStores = companies.filter(company => company.category === 'Retail')
 console.log(retailStores)
-// 
+// we want to filter companies of the category finance:
+const financeStores = companies.filter(company => company.category === 'Finance')
+console.log(financeStores)
+// we want to filter companies that were started before 1990 and ended before 2005
+const startedBefore1990 = companies.filter(company => (company.start < 1990 && company.end < 2005))
+console.log(startedBefore1990)
+// we want to filter companies that lasted more than 10 years into a new array
+const companiesThatLasted10YearsOrMore = companies.filter(company => company.end - company.start >= 10)
+console.log(companiesThatLasted10YearsOrMore)
