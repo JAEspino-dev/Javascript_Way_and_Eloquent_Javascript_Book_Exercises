@@ -624,3 +624,79 @@ console.log(startedBefore1990)
 // we want to filter companies that lasted more than 10 years into a new array
 const companiesThatLasted10YearsOrMore = companies.filter(company => company.end - company.start >= 10)
 console.log(companiesThatLasted10YearsOrMore)
+
+// creates a simple array with just the names from the objects above
+const companyNames = companies.map(company => company.name)
+console.log(companyNames)
+
+//return an array with start and end year of each company
+const companyStartandEndArray = companies.map(company => {
+    return `${company.name} was started in ${company.start} and closed in ${company.end}`
+})
+console.log(companyStartandEndArray)
+
+const agesDoubled = ages.map(age => age * 2)
+console.log(agesDoubled)
+
+const agesSquare = ages.map(age => Math.sqrt(age))
+console.log(agesSquare)
+
+const ageMap = ages 
+    .map(age => Math.sqrt(age))
+    .map(age => age * 2)
+console.log(ageMap)
+
+const sortedCompanies = companies.sort(function(a,b){
+    if(a.start > b.start){
+        return 1
+    } else {
+        return -1
+    }
+})
+console.log(sortedCompanies)
+const sortedCompanies2 = companies.sort((a,b) =>(a.start > b.start ? 1 : -1))
+console.log(sortedCompanies2)
+
+const sortedAgesAscendingOrder = ages.sort((a,b) => a > b ? 1 : -1)
+console.log(sortedAgesAscendingOrder)
+
+const sortedAgesDescendingOrder = ages.sort((a,b) => a > b ? -1 : 1)
+console.log(sortedAgesDescendingOrder)
+
+// reduce method, add up all the ages in ages array
+let ageSum = 0
+for(let i = 0; i < ages.length; i++){
+    ageSum += ages[i]
+}
+console.log(ageSum)
+
+const agesSum = ages.reduce(function(total,age){
+    return total + age
+}, 0)
+console.log(agesSum)
+// how can this be rewritten using arrow functions? 
+const agesSums = ages.reduce((total, age) => total + age, 0)
+console.log(agesSums)
+
+// const ages = [33, 12, 20, 5, 6, 12, 26]
+// const combinedAgesArray = ages
+//     .map(age => age * 2) // creates a new array that has doubled each element
+//     .filter(age => age >= 40) // filters out each age element less than 40
+//     .sort((a,b) => a - b) // returns a new array in ascending order
+//     .reduce((a,b) => a + b, 0) // accumulates all the values in the sorted array
+
+// const ages = [33, 12, 20, 5, 6, 12, 26]
+const combinedAgesArray = ages
+    .map(age => age * 2)
+    // creates a NEW array where each age is doubled
+
+    .filter(age => age >= 40)
+    // creates a NEW array containing only values >= 40
+
+    .sort((a,b) => a - b)
+    // sorts the array in ascending order
+    // IMPORTANT: sort() MUTATES the array it is operating on
+
+    .reduce((a,b) => a + b, 0)
+    // accumulates/sums all the values, starting with 0
+console.log(combinedAgesArray)
