@@ -699,4 +699,5 @@ const combinedAgesArray = ages
 
     .reduce((a,b) => a + b, 0)
     // accumulates/sums all the values, starting with 0
+
 console.log(combinedAgesArray)
