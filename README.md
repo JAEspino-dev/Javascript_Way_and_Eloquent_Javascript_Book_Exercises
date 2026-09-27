@@ -5,7 +5,7 @@ These are the solutions to the exercise of the book The Javascript Way and Eloqu
 Open the program in your code editor
 
 # 📷 Images
-Drag and drop image here
+<img width="1165" height="959" alt="Screenshot 2026-09-27 at 12 43 59 AM" src="https://github.com/user-attachments/assets/60fd339d-c23d-4fac-b627-e312d4f00b45" />
 
 # ✨ Features
 Fully responsive design for desktop and mobile
