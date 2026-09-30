@@ -702,21 +702,21 @@
 
 // console.log(combinedAgesArray)
 
-let labels = []
+let labels = [ ]
 function pushToArray(array, num) {
-    array.push(`Unit ${num}`)
+     array.push(`Unit ${num}`)
 }
 function repeatAction(n, functionToRunNTimes, array) {
-    for (i = 0; i < n; i++) {
-        console.log(functionToRunNTimes(array, i))
-        console.log(array)
-    }
+     for (i = 0; i < n; i++) {
+     functionToRunNTimes(array, i)
+     }
+     console.log(labels)
 }
 repeatAction(5,pushToArray,labels)
 const repeatedlyAddStuffToArray = ((n, array) => {
      for (let i = 0; i < n ; i++) {
      array.push(`Unit ${i}`)
+     }
      console.log(array)
-     } 
-     })
+})
 repeatedlyAddStuffToArray (5, labels)
