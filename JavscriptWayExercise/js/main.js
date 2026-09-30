@@ -535,169 +535,188 @@
 // animal[0] = "r";
 // console.log(animal)
 
-class ShoppingCart{
-    constructor(user){
-        this.user = user
-        this.items = []
-    }
-    addItems(name, price){
-        this.items.push({ // [].push({'name', price})
-            name: name,
-            price: price
-        })
-        return `${name} got added to the cart`
-    }
-    removeItem(name){
-        this.items = this.items.filter(item => item.name !== name)
-    }
-    getTotal(){
-        return this.items.reduce((accumulator, item) => accumulator + item.price, 0)
-    }
-}
-const JorgeCart = new ShoppingCart('Jorge')
-console.log(JorgeCart)
-JorgeCart.addItems('Noodles', 5)
-JorgeCart.addItems('Chicken', 7)
-JorgeCart.addItems('Tri-Tip', 34)
-console.log(JorgeCart)
-JorgeCart.removeItem('Chicken')
-console.log(JorgeCart)
-console.log(JorgeCart.getTotal())
-
-function repeat(n, action) {
-    for (let i = 0; i < n; i++) {
-        action(i);
-    }
-}
-
-let labels = [];
-repeat(5, i => {
-    labels.push(`Unit ${i + 1}`);
-});
-console.log(labels);
-// → ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5"]
-
-const companies = [
-    { name: "Company One", category: "Finance", start: 1981, end: 2003 },
-    { name: "Company Two", category: "Retail", start: 1992, end: 2150 },
-    { name: "Company Three", category: "Auto", start: 1979, end: 2054 },
-    { name: "Company Four", category: "Finance", start: 1981, end: 1981 },
-    { name: "Company Five", category: "Retail", start: 1945, end: 1947 },
-    { name: "Company Six", category: "Auto", start: 1981, end: 2142 },
-    { name: "Company Seven", category: "Technology", start: 1944, end: 1982 },
-    { name: "Company Eight", category: "Technology", start: 1972, end: 1980 },
-    { name: "Company Nine", category: "Retail", start: 1981, end: 1982 }
-]
-
-const ages = [33, 12, 20, 5, 6, 12, 26]
-
-for (let i = 0; i < companies.length; i++) {
-    console.log(companies[i])
-}
-// forEach 
-companies.forEach(company =>
-    console.log(company)
-)
-// filter
-let canBuyAlcohol = []
-for (let i = 0; i < ages.length; i++) {
-    if (ages[i] >= 21) {
-        canBuyAlcohol.push(ages[i])
-    }
-}
-let canDrink = ages.filter(age => age >= 21)
-
-// const retailStores = companies.filter(function (isCompanyARetailStore) {
-//     if (isCompanyARetailStore.category === "Retail") {
-//         return true
+// class ShoppingCart{
+//     constructor(user){
+//         this.user = user
+//         this.items = []
+//     }
+//     addItems(name, price){
+//         this.items.push({ // [].push({'name', price})
+//             name: name,
+//             price: price
+//         })
+//         return `${name} got added to the cart`
+//     }
+//     removeItem(name){
+//         this.items = this.items.filter(item => item.name !== name)
+//     }
+//     getTotal(){
+//         return this.items.reduce((accumulator, item) => accumulator + item.price, 0)
 //     }
 // }
+// const JorgeCart = new ShoppingCart('Jorge')
+// console.log(JorgeCart)
+// JorgeCart.addItems('Noodles', 5)
+// JorgeCart.addItems('Chicken', 7)
+// JorgeCart.addItems('Tri-Tip', 34)
+// console.log(JorgeCart)
+// JorgeCart.removeItem('Chicken')
+// console.log(JorgeCart)
+// console.log(JorgeCart.getTotal())
+
+// function repeat(n, action) {
+//     for (let i = 0; i < n; i++) {
+//         action(i);
+//     }
+// }
+
+// let labels = [];
+// repeat(5, i => {
+//     labels.push(`Unit ${i + 1}`);
+// });
+// console.log(labels);
+// // → ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5"]
+
+// const companies = [
+//     { name: "Company One", category: "Finance", start: 1981, end: 2003 },
+//     { name: "Company Two", category: "Retail", start: 1992, end: 2150 },
+//     { name: "Company Three", category: "Auto", start: 1979, end: 2054 },
+//     { name: "Company Four", category: "Finance", start: 1981, end: 1981 },
+//     { name: "Company Five", category: "Retail", start: 1945, end: 1947 },
+//     { name: "Company Six", category: "Auto", start: 1981, end: 2142 },
+//     { name: "Company Seven", category: "Technology", start: 1944, end: 1982 },
+//     { name: "Company Eight", category: "Technology", start: 1972, end: 1980 },
+//     { name: "Company Nine", category: "Retail", start: 1981, end: 1982 }
+// ]
+
+// const ages = [33, 12, 20, 5, 6, 12, 26]
+
+// for (let i = 0; i < companies.length; i++) {
+//     console.log(companies[i])
+// }
+// // forEach 
+// companies.forEach(company =>
+//     console.log(company)
 // )
-const retailStores = companies.filter(company => company.category === 'Retail')
-console.log(retailStores)
-// we want to filter companies of the category finance:
-const financeStores = companies.filter(company => company.category === 'Finance')
-console.log(financeStores)
-// we want to filter companies that were started before 1990 and ended before 2005
-const startedBefore1990 = companies.filter(company => (company.start < 1990 && company.end < 2005))
-console.log(startedBefore1990)
-// we want to filter companies that lasted more than 10 years into a new array
-const companiesThatLasted10YearsOrMore = companies.filter(company => company.end - company.start >= 10)
-console.log(companiesThatLasted10YearsOrMore)
+// // filter
+// let canBuyAlcohol = []
+// for (let i = 0; i < ages.length; i++) {
+//     if (ages[i] >= 21) {
+//         canBuyAlcohol.push(ages[i])
+//     }
+// }
+// let canDrink = ages.filter(age => age >= 21)
 
-// creates a simple array with just the names from the objects above
-const companyNames = companies.map(company => company.name)
-console.log(companyNames)
+// // const retailStores = companies.filter(function (isCompanyARetailStore) {
+// //     if (isCompanyARetailStore.category === "Retail") {
+// //         return true
+// //     }
+// // }
+// // )
+// const retailStores = companies.filter(company => company.category === 'Retail')
+// console.log(retailStores)
+// // we want to filter companies of the category finance:
+// const financeStores = companies.filter(company => company.category === 'Finance')
+// console.log(financeStores)
+// // we want to filter companies that were started before 1990 and ended before 2005
+// const startedBefore1990 = companies.filter(company => (company.start < 1990 && company.end < 2005))
+// console.log(startedBefore1990)
+// // we want to filter companies that lasted more than 10 years into a new array
+// const companiesThatLasted10YearsOrMore = companies.filter(company => company.end - company.start >= 10)
+// console.log(companiesThatLasted10YearsOrMore)
 
-//return an array with start and end year of each company
-const companyStartandEndArray = companies.map(company => {
-    return `${company.name} was started in ${company.start} and closed in ${company.end}`
-})
-console.log(companyStartandEndArray)
+// // creates a simple array with just the names from the objects above
+// const companyNames = companies.map(company => company.name)
+// console.log(companyNames)
 
-const agesDoubled = ages.map(age => age * 2)
-console.log(agesDoubled)
+// //return an array with start and end year of each company
+// const companyStartandEndArray = companies.map(company => {
+//     return `${company.name} was started in ${company.start} and closed in ${company.end}`
+// })
+// console.log(companyStartandEndArray)
 
-const agesSquare = ages.map(age => Math.sqrt(age))
-console.log(agesSquare)
+// const agesDoubled = ages.map(age => age * 2)
+// console.log(agesDoubled)
 
-const ageMap = ages 
-    .map(age => Math.sqrt(age))
-    .map(age => age * 2)
-console.log(ageMap)
+// const agesSquare = ages.map(age => Math.sqrt(age))
+// console.log(agesSquare)
 
-const sortedCompanies = companies.sort(function(a,b){
-    if(a.start > b.start){
-        return 1
-    } else {
-        return -1
-    }
-})
-console.log(sortedCompanies)
-const sortedCompanies2 = companies.sort((a,b) =>(a.start > b.start ? 1 : -1))
-console.log(sortedCompanies2)
+// const ageMap = ages 
+//     .map(age => Math.sqrt(age))
+//     .map(age => age * 2)
+// console.log(ageMap)
 
-const sortedAgesAscendingOrder = ages.sort((a,b) => a > b ? 1 : -1)
-console.log(sortedAgesAscendingOrder)
+// const sortedCompanies = companies.sort(function(a,b){
+//     if(a.start > b.start){
+//         return 1
+//     } else {
+//         return -1
+//     }
+// })
+// console.log(sortedCompanies)
+// const sortedCompanies2 = companies.sort((a,b) =>(a.start > b.start ? 1 : -1))
+// console.log(sortedCompanies2)
 
-const sortedAgesDescendingOrder = ages.sort((a,b) => a > b ? -1 : 1)
-console.log(sortedAgesDescendingOrder)
+// const sortedAgesAscendingOrder = ages.sort((a,b) => a > b ? 1 : -1)
+// console.log(sortedAgesAscendingOrder)
 
-// reduce method, add up all the ages in ages array
-let ageSum = 0
-for(let i = 0; i < ages.length; i++){
-    ageSum += ages[i]
-}
-console.log(ageSum)
+// const sortedAgesDescendingOrder = ages.sort((a,b) => a > b ? -1 : 1)
+// console.log(sortedAgesDescendingOrder)
 
-const agesSum = ages.reduce(function(total,age){
-    return total + age
-}, 0)
-console.log(agesSum)
-// how can this be rewritten using arrow functions? 
-const agesSums = ages.reduce((total, age) => total + age, 0)
-console.log(agesSums)
+// // reduce method, add up all the ages in ages array
+// let ageSum = 0
+// for(let i = 0; i < ages.length; i++){
+//     ageSum += ages[i]
+// }
+// console.log(ageSum)
 
-// const ages = [33, 12, 20, 5, 6, 12, 26]
+// const agesSum = ages.reduce(function(total,age){
+//     return total + age
+// }, 0)
+// console.log(agesSum)
+// // how can this be rewritten using arrow functions? 
+// const agesSums = ages.reduce((total, age) => total + age, 0)
+// console.log(agesSums)
+
+// // const ages = [33, 12, 20, 5, 6, 12, 26]
+// // const combinedAgesArray = ages
+// //     .map(age => age * 2) // creates a new array that has doubled each element
+// //     .filter(age => age >= 40) // filters out each age element less than 40
+// //     .sort((a,b) => a - b) // returns a new array in ascending order
+// //     .reduce((a,b) => a + b, 0) // accumulates all the values in the sorted array
+
+// // const ages = [33, 12, 20, 5, 6, 12, 26]
 // const combinedAgesArray = ages
-//     .map(age => age * 2) // creates a new array that has doubled each element
-//     .filter(age => age >= 40) // filters out each age element less than 40
-//     .sort((a,b) => a - b) // returns a new array in ascending order
-//     .reduce((a,b) => a + b, 0) // accumulates all the values in the sorted array
+//     .map(age => age * 2)
+//     // creates a NEW array where each age is doubled
 
-// const ages = [33, 12, 20, 5, 6, 12, 26]
-const combinedAgesArray = ages
-    .map(age => age * 2)
-    // creates a NEW array where each age is doubled
+//     .filter(age => age >= 40)
+//     // creates a NEW array containing only values >= 40
 
-    .filter(age => age >= 40)
-    // creates a NEW array containing only values >= 40
+//     .sort((a,b) => a - b)
+//     // sorts the array in ascending order
+//     // IMPORTANT: sort() MUTATES the array it is operating on
 
-    .sort((a,b) => a - b)
-    // sorts the array in ascending order
-    // IMPORTANT: sort() MUTATES the array it is operating on
+//     .reduce((a,b) => a + b, 0)
+//     // accumulates/sums all the values, starting with 0
 
-    .reduce((a,b) => a + b, 0)
-    // accumulates/sums all the values, starting with 0
+// console.log(combinedAgesArray)
 
-console.log(combinedAgesArray)
+let labels = []
+function pushToArray(array, num) {
+    array.push(`Unit ${num}`)
+}
+function repeatAction(n, functionToRunNTimes, array) {
+    for (i = 0; i < n; i++) {
+        console.log(functionToRunNTimes(array, i))
+        console.log(array)
+    }
+}
+repeatAction(5,pushToArray,labels)
+const repeatedlyAddStuffToArray = ((n, array) => {
+     for (let i = 0; i < n ; i++) {
+     array.push(`Unit ${i}`)
+     console.log(array)
+     } 
+     })
+repeatedlyAddStuffToArray (5, labels)
