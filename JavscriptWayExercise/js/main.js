@@ -588,7 +588,11 @@
 //     { name: "Company Eight", category: "Technology", start: 1972, end: 1980 },
 //     { name: "Company Nine", category: "Retail", start: 1981, end: 1982 }
 // ]
-
+// // how would you get the total number of years that these companies have been around for? 
+// const totalYearsCompaniesHaveBeenAroundFor = companies.reduce((accumulator, company) => {
+//      return accumulator + (company.end - company.start)
+// }, 0)
+// console.log(totalYearsCompaniesHaveBeenAroundFor)
 // const ages = [33, 12, 20, 5, 6, 12, 26]
 
 // for (let i = 0; i < companies.length; i++) {
@@ -685,7 +689,7 @@
 // //     .sort((a,b) => a - b) // returns a new array in ascending order
 // //     .reduce((a,b) => a + b, 0) // accumulates all the values in the sorted array
 
-// // const ages = [33, 12, 20, 5, 6, 12, 26]
+// const ages = [33, 12, 20, 5, 6, 12, 26]
 // const combinedAgesArray = ages
 //     .map(age => age * 2)
 //     // creates a NEW array where each age is doubled
@@ -700,23 +704,79 @@
 //     .reduce((a,b) => a + b, 0)
 //     // accumulates/sums all the values, starting with 0
 
-// console.log(combinedAgesArray)
+// console.log(combinedAgesArray) // produces 158
 
-let labels = [ ]
-function pushToArray(array, num) {
-     array.push(`Unit ${num}`)
-}
-function repeatAction(n, functionToRunNTimes, array) {
-     for (i = 0; i < n; i++) {
-     functionToRunNTimes(array, i)
-     }
-     console.log(labels)
-}
-repeatAction(5,pushToArray,labels)
-const repeatedlyAddStuffToArray = ((n, array) => {
-     for (let i = 0; i < n ; i++) {
-     array.push(`Unit ${i}`)
-     }
-     console.log(array)
-})
-repeatedlyAddStuffToArray (5, labels)
+// let labels = [ ]
+// function pushToArray(array, num) {
+//      array.push(`Unit ${num}`)
+// }
+// function repeatAction(n, functionToRunNTimes, array) {
+//      for (i = 0; i < n; i++) {
+//      functionToRunNTimes(array, i)
+//      }
+//      console.log(labels)
+// }
+// repeatAction(5,pushToArray,labels)
+// const repeatedlyAddStuffToArray = ((n, array) => {
+//      for (let i = 0; i < n ; i++) {
+//      array.push(`Unit ${i}`)
+//      }
+//      console.log(array)
+// })
+// repeatedlyAddStuffToArray (5, labels)
+
+// function reduce(array, combine, start) {
+//   let current = start;
+//   for (let element of array) {
+//     current = combine(current, element);
+//   }
+//   return current;
+// }
+
+// console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0));
+// // → 10
+
+// const number = [1, 2, 4, 6, 7]
+// let sum = 0
+// for(let i = 0; i < number.length; i++){
+//      sum += number[i]
+// }
+// console.log(sum)
+
+// const total = number.reduce((accumulator,currentValue) => {
+//      return accumulator + currentValue
+// }, 0)
+// console.log(total)
+// what is happening? 
+// we are using the .reduce method on this array: number = [1, 2, 4, 6, 7]
+// on start, we set accumulator = 0
+// so accumu = 0, currentValue = 1 (taken from first element in array that we are running method on) 
+// this returns 0 + 1 so 1
+// then, accumulator is now 1. Then, we are putting in second element in array into function as current value. so we have updated accumulator and currentValue
+// return 1 + 2 = 3
+// then accumulator updated to 3, and current value is 4
+// return 3 + 4 = 7
+// then accumalator updated to 7 and current value is 6
+// return 7 + 6 = 13
+// then accumulator is 13 and currentValue is 7
+// return 13 + 7 = 20
+// you can write it even more simply: 
+// const totalElegant = number.reduce(
+//      (accumulator, currentValue) => accumulator + currentValue
+// )
+
+// const sumOfAges = ages.reduce((accumulator, currentValueInArray)=>  accumulator + currentValueInArray) 
+
+// // ages array
+// sumAges = 0
+// for (let age in ages){
+//      sumAges += age
+// }
+// for(let i = 0; i < ages.length; i++){
+//      sumAges += ages[i]
+// }
+
+let arrays = [[1, 2, 3], [4, 5], [6]];
+// Your code here.
+// → [1, 2, 3, 4, 5, 6] user reduce and concatenation
+console.log(arrays)
